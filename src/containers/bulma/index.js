@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import view from "./view.jade";
 import styles from "./style.scss";
 
-class Foo extends Component {
+class Bulma extends Component {
     render() {
         const style = styles.map(s => s[1]).join("");
         const {children} = this.props;
@@ -15,4 +15,4 @@ class Foo extends Component {
     }
 }
 
-export default connect(state => state)(Foo);
+export default connect(state => state)(Bulma);
