@@ -1,3 +1,48 @@
-div
+#app-root
   style=style
-  h2 Bar
+  header
+    .navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href="/") Bootstrap
+          button.navbar-toggle
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href="/") Top
+            li.dropdown
+              a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+                | Demo
+                span.caret
+
+              ul.dropdown-menu(role="menu")
+                li
+                  a(href="./bootstrap-ja.html") Japanese Page
+                li
+                  a(href="./bootstrap.html") English Page
+
+            li
+              a(href="/") Download
+            li
+              a(href="/") Wiki
+
+          .nav.navbar-form.navbar-right
+            .form-group
+              a.btn(href="/")
+                span.glyphicon.glyphicon-star Star
+
+              a.btn.btn-default(href="/")
+                span.glyphicon.glyphicon-star Star
+
+              a.btn.btn-primary(href="/")
+                span.glyphicon.glyphicon-star Star
+
+  .jumbotron.special
+    .container
+      .row
+        .col-xs-12.outline
+          h1 Hello Bootstrap
