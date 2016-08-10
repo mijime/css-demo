@@ -12,10 +12,9 @@
     {{ if .Error }}
     <style>
 body > .error {
-  width: 50%;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+  position: fixed;
+  left: 15px;
+  bottom: 100px;
   opacity: .5;
   color: #666;
   border: 2px solid #fb2c10;
@@ -25,7 +24,6 @@ body > .error {
 }
 
 body > .error > button {
-  padding: 10px 10px 0 10px;
   font-size: 16px;
   pointer-events: auto;
 }
@@ -39,8 +37,6 @@ body > .error > hr {
 body > .error > pre {
   font-family:monaco, Consolas, Lucida Console, monospace;
   font-size: 14px;
-  padding: 0 10px 10px;
-  margin: 0;
 }
     </style>
     <div class="error">
