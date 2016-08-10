@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "fix": "eslint --fix *.js react",
-    "build": "webpack",
+    "build": "webpack --progress",
     "debug": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

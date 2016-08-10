@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" data-uuid="{{ .UUID }}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <title></title>
+  </head>
+  <body>
+    {{ if .Error }}
+    <style>
+body > .error {
+  width: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: .5;
+  color: #666;
+  border: 2px solid #fb2c10;
+  background: rgba(0,0,0,.1);
+  font-family:monaco, Consolas, Lucida Console, monospace;
+  pointer-events: none;
+}
+
+body > .error > button {
+  padding: 10px 10px 0 10px;
+  font-size: 16px;
+  pointer-events: auto;
+}
+
+body > .error > hr {
+  height: 0px;
+  border: none;
+  border-bottom: 2px solid #fb2c10;
+}
+
+body > .error > pre {
+  font-family:monaco, Consolas, Lucida Console, monospace;
+  font-size: 14px;
+  padding: 0 10px 10px;
+  margin: 0;
+}
+    </style>
+    <div class="error">
+      <button onclick="this.parentElement.parentElement.removeChild(this.parentElement)">
+        Server Error: {{ .UUID }}
+      </button>
+      <hr />
+      <pre>{{ .Error }}</pre>
+    </div>
+    {{ end }}
+    <div id="root">
+      {{ .HTMLApp }}
+    </div>
+    <script onload="this.parentElement.removeChild(this)">
+window["--app-initial"] = JSON.parse("{{ if .Initial }}{{ .Initial }}{{ else }}{}{{ end }}");
+    </script>
+    <script async defer src="/app.bundle.js" onload="this.parentElement.removeChild(this)"></script>
+  </body>
+</html>

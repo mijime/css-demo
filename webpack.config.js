@@ -6,7 +6,7 @@ module.exports = {
         app: [path.join(__dirname, "react")],
     },
     output: {
-        path: path.join(__dirname, "build/Release"),
+        path: path.join(__dirname, "build/Release/assets"),
         filename: "[name].bundle.js",
     },
     module: {

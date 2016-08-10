@@ -9,10 +9,8 @@ config.entry.app = [
     path.join(__dirname, "react"),
 ];
 config.plugins = [new webpack.HotModuleReplacementPlugin()];
-config.output.publicPath = "/";
 
 var compiler = webpack(config);
-
 var server = new DevServer(compiler, {
     publicPath: config.output.publicPath,
     hot: true,
