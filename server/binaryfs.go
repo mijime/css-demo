@@ -27,7 +27,7 @@ func (b *BinaryFileSystem) Exists(filepath string) bool {
 }
 
 func (b *BinaryFileSystem) CreateServer() http.Handler {
-	return http.FileServer(b)
+	return http.FileServer(b.Fs)
 }
 
 func (b *BinaryFileSystem) CreateTemplate(path string) (*template.Template, error) {

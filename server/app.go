@@ -1,7 +1,7 @@
 package server
 
 import (
-	"log"
+	"path"
 
 	"github.com/gin-gonic/contrib/renders/multitemplate"
 	"github.com/gin-gonic/gin"
@@ -49,7 +49,13 @@ func NewApp(opts ...AppOptions) *App {
 	)
 
 	engine.Use(func(c *gin.Context) {
-		log.Println(c.Request.URL.Path, bfs.Exists(c.Request.URL.Path))
+		ext := path.Ext(c.Request.URL.Path)
+
+		if ext == "" {
+			react.Handle(c)
+			c.Abort()
+			return
+		}
 
 		if bfs.Exists(c.Request.URL.Path) {
 			fs.ServeHTTP(c.Writer, c.Request)
@@ -57,7 +63,6 @@ func NewApp(opts ...AppOptions) *App {
 			return
 		}
 
-		react.Handle(c)
 		return
 	})
 
