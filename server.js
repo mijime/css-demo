@@ -6,7 +6,7 @@ var config = require("./webpack.config");
 config.entry.app = [
     "webpack-dev-server/client?http://localhost:3000",
     "webpack/hot/only-dev-server",
-    path.join(__dirname, "src"),
+    path.join(__dirname, "react"),
 ];
 config.plugins = [new webpack.HotModuleReplacementPlugin()];
 config.output.publicPath = "/";

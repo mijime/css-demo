@@ -3,7 +3,7 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
-        app: [path.join(__dirname, "src")],
+        app: [path.join(__dirname, "react")],
     },
     output: {
         path: path.join(__dirname, "build/Release"),
