@@ -11,6 +11,9 @@ serv:
 	make build
 	build/Release/css-demo --debug --addr :3000
 
+setup:
+	npm install
+
 build/Release/css-demo: $(GOSRC) server/bindata.go
 	go fmt ./...
 	go get -v ./...
@@ -21,7 +24,6 @@ server/bindata.go: build/Release/assets templates
 	go-bindata -pkg server -o $@ $^
 
 build/Release/assets:
-	npm install
 	npm run build -- --output-path $@
 
 clean:
